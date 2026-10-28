@@ -1,0 +1,6 @@
+# 使用Kivy的基础版本，避免安装不必要的依赖  
+kivy[base]>=2.2.0          
+cython<=0.29.33  
+pycryptodome>=3.20.0  
+openpyxl>=3.1.2         
+Pillow>=10.0.0

@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Database (不要上传数据文件)
+*.db
+*.db-journal
+*.sqlite
+
+# Build artifacts
+.buildozer/
+bin/
+*.apk
+*.aab
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Backup
+backups/
+
+# Spec backup
+buildozer1.spec
+
+# Temp
+*.log
+*.tmp
