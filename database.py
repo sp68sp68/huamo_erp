@@ -2,10 +2,16 @@ import sqlite3
 import os
 import sys
 from datetime import datetime
-from Crypto.Cipher import AES
-from Crypto.Protocol.KDF import PBKDF2
 import base64
 import hashlib
+
+# 加密功能可选（Android 构建时可能不可用）
+try:
+    from Crypto.Cipher import AES
+    from Crypto.Protocol.KDF import PBKDF2
+    ENCRYPTION_AVAILABLE = True
+except ImportError:
+    ENCRYPTION_AVAILABLE = False
 
 
 ANDROID = 'android' in sys.platform or os.environ.get('ANDROID_ARGUMENT')
