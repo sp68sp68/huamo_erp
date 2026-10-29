@@ -50,7 +50,9 @@ jobs:
     - name: Install Python dependencies
       run: |
         pip install --upgrade pip setuptools wheel
-        pip install buildozer==1.5.0 cython==0.29.33
+        pip install cython==0.29.33
+        pip install "buildozer @ git+https://github.com/kivy/buildozer.git@master"
+        pip install "python-for-android @ git+https://github.com/kivy/python-for-android.git@master"
     
     - name: Build APK
       run: |
