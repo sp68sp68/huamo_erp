@@ -20,13 +20,17 @@ jobs:
     - name: Set up Java
       uses: actions/setup-java@v4
       with:
-        distribution: 'microsoft'
+        distribution: 'temurin'
         java-version: '17'
     
-    - name: Install dependencies
+    - name: Install system dependencies
       run: |
         sudo apt update
-        sudo apt install -y build-essential git zip unzip libffi-dev ccache
+        sudo apt install -y build-essential git zip unzip libffi-dev ccache wget curl
+    
+    - name: Install Python dependencies
+      run: |
+        pip install --upgrade pip
         pip install buildozer cython==0.29.33
     
     - name: Build APK
@@ -34,7 +38,9 @@ jobs:
         buildozer android debug
     
     - name: Upload APK
+      if: success()
       uses: actions/upload-artifact@v4
       with:
         name: huamo-erp-apk
         path: bin/*.apk
+        if-no-files-found: warn

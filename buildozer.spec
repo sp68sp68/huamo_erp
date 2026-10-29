@@ -39,7 +39,7 @@ version = 1.0
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy==2.3.0,sqlite3,pycryptodome,openpyxl,Pillow,android
+requirements = python3,kivy==2.3.0,pycryptodome,openpyxl,Pillow,android
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -124,7 +124,7 @@ android.ndk_api = 21
 #android.ndk_path =
 
 # (str) Android SDK directory (if empty, it will be automatically downloaded.)
-android.sdk_path = C:\Users\song\AppData\Local\Android\Sdk
+#android.sdk_path =
 
 # (str) ANT directory (if empty, it will be automatically downloaded.)
 #android.ant_path =
