@@ -34,36 +34,13 @@ jobs:
         pip install buildozer cython==0.29.33
     
     - name: Build APK
-      id: build
-      continue-on-error: true
       run: |
-        buildozer android debug 2>&1 | tee build.log
-        echo "BUILD_EXIT_CODE=${PIPESTATUS[0]}" >> $GITHUB_ENV
-    
-    - name: Show error on failure
-      if: steps.build.outcome == 'failure'
-      run: |
-        echo "========== BUILD FAILED =========="
-        echo "Searching for errors in build.log..."
-        echo ""
-        grep -i -A 5 -B 5 "error\|traceback\|failed\|exception" build.log | tail -100
-        echo ""
-        echo "========== LAST 50 LINES =========="
-        tail -50 build.log
-        exit 1
-    
-    - name: Upload build log
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: build-log
-        path: build.log
-        retention-days: 7
+        set -e
+        buildozer android debug
     
     - name: Upload APK
-      if: success()
       uses: actions/upload-artifact@v4
       with:
         name: huamo-erp-apk
         path: bin/*.apk
-        if-no-files-found: warn
+        if-no-files-found: error
