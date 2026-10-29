@@ -50,7 +50,7 @@ jobs:
     - name: Install Python dependencies
       run: |
         pip install --upgrade pip setuptools wheel
-        pip install buildozer cython==0.29.33
+        pip install --upgrade buildozer cython==0.29.33
     
     - name: Build APK
       run: |
